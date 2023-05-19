@@ -106,6 +106,7 @@ import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
@@ -249,7 +250,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             SmartSpaceController smartSpaceController,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             BurnInProtectionController burnInProtectionController,
-            SysUiState sysUiState) {
+            SysUiState sysUiState, TaskHelper taskHelper) {
 
          super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
@@ -280,7 +281,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, 
-                burnInProtectionController, sysUiState);
+                burnInProtectionController, sysUiState, taskHelper);
 
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
